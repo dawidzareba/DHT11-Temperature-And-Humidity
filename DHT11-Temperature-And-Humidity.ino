@@ -1,0 +1,27 @@
+#include <dht.h>
+#include <LiquidCrystal.h>
+//LiquidCrystal display pin config
+LiquidCrystal lcd(9, 8, 5, 4, 3, 2);
+dht DHT;
+int motor_value = 255;
+//DHT11 pin
+#define DHT11_PIN 7
+
+void setup(){
+  lcd.begin(16, 2);
+  Serial.begin(9600);
+}
+
+void loop(){
+  int chk = DHT.read11(DHT11_PIN);
+  lcd.setCursor(0,0);
+  lcd.print("Temp: ");
+  lcd.print(DHT.temperature);
+  lcd.print((char)223);
+  lcd.print("C");
+  lcd.setCursor(0,1);
+  lcd.print("Wilg: ");
+  lcd.print(DHT.humidity);
+  lcd.print("%");
+  delay(500);
+}
