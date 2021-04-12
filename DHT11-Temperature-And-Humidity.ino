@@ -3,7 +3,6 @@
 //LiquidCrystal display pin config
 LiquidCrystal lcd(9, 8, 5, 4, 3, 2);
 dht DHT;
-int motor_value = 255;
 //DHT11 pin
 #define DHT11_PIN 7
 
